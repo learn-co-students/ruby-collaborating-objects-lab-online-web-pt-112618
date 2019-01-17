@@ -13,9 +13,10 @@ class Song
     artist_name = file_name.split(" - ")[0]
 
     song = self.new(song_name)
-    song
     artist = Artist.new(artist_name)
-    artist
+    song.artist =(artist_name) #I have to set artist to name so that its aware of its song
+    #!!!ASSOCIATES NEW SONG WITH ARTIST USE ARTIST ATTRIBUTE AND SET IT SO ARTIST KNOWS ABOUT IT!
+    song
   end
 
 end
