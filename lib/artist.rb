@@ -28,9 +28,20 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
+    self.find_by_name(name) || self.create_by_name(name)
     #find artist by name(why do I need to use all?)  ||
-    self.all.find {|artist| artist.name == name} || name = self.new(name)
+    #self.all.find {|artist| artist.name == name} || name = self.new(name)
     #create artist by name
+  end
+
+  def self.create_by_name(name)
+    artist = self.new(name)
+    artist.save
+    artist
+  end
+
+  def self.find_by_name(name) #accepts the string name of a song
+    self.all.find {|artist| artist.name == name}#returns the matching instance of the song with that name.
   end
 
   def print_songs
